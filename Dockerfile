@@ -15,4 +15,4 @@ ADD supervisor.conf /etc/supervisor/conf.d/sensu.conf
 # API
 EXPOSE 4567
 
-ENTRYPOINT ["/tmp.run.sh"]
+ENTRYPOINT ["/tmp/run.sh"]
