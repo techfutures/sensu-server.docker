@@ -1,17 +1,8 @@
 #!/bin/sh
 
-if [ -z "$CLIENT_ADDRESS" ]; then
-  echo "\$CLIENT_ADDRESS must be provided" 
-  exit 1
-fi
-
-if [ -z "$RABBITMQ_PASS" ]; then
-  echo "\$RABBITMQ_PASS must be provided" 
-  exit 1
-fi
-
 if [ -z "$RABBITMQ_HOST" ]; then
-  RABBITMQ_HOST="$CLIENT_ADDRESS"
+  echo "\$RABBITMQ_HOST must be provided" 
+  exit 1
 fi
 
 cat << EOF > /etc/sensu/config.json
@@ -23,16 +14,16 @@ cat << EOF > /etc/sensu/config.json
     },
     "host": "$RABBITMQ_HOST",
     "port": $RABBITMQ_PORT,
-    "vhost": "/sensu",
-    "user": "sensu",
+    "vhost": "$RABBITMQ_VHOST",
+    "user": "$RABBITMQ_USER",
     "password": "$RABBITMQ_PASS"
   },
   {
     "api": {
       "host": "0.0.0.0",
       "port": 4567,
-      "user": "$SENSU_USER",
-      "password": "$SENSU_PASS"
+      "user": "$API_USER",
+      "password": "$API_PASS"
     }
   }
 }
