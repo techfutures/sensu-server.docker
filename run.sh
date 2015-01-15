@@ -29,9 +29,9 @@ cat << EOF > /etc/sensu/config.json
     "user": "$API_USER",
     "password": "$API_PASS"
   },
-  "redis" {
+  "redis": {
     "host": "$REDIS_HOST",
-    "port": "$REDIS_PORT"
+    "port": $REDIS_PORT
   }
 }
 EOF
