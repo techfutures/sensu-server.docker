@@ -14,11 +14,9 @@ RUN \
   && echo 'deb http://repos.sensuapp.org/apt sensu main' > /etc/apt/sources.list.d/sensu.list \
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y sensu supervisor
+  && apt-get install -y sensu
 
 ADD run.sh /tmp/run.sh
-ADD supervisor.conf /etc/supervisor/conf.d/sensu.conf
-
 
 # API
 EXPOSE 4567
