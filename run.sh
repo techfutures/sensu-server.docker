@@ -18,13 +18,11 @@ cat << EOF > /etc/sensu/config.json
     "user": "$RABBITMQ_USER",
     "password": "$RABBITMQ_PASS"
   },
-  {
-    "api": {
-      "host": "0.0.0.0",
-      "port": 4567,
-      "user": "$API_USER",
-      "password": "$API_PASS"
-    }
+  "api": {
+    "host": "0.0.0.0",
+    "port": 4567,
+    "user": "$API_USER",
+    "password": "$API_PASS"
   }
 }
 EOF
