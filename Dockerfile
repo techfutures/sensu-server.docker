@@ -18,7 +18,4 @@ RUN \
 
 ADD run.sh /tmp/run.sh
 
-# API
-EXPOSE 4567
-
 ENTRYPOINT ["/tmp/run.sh"]
