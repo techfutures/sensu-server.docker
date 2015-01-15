@@ -5,6 +5,11 @@ if [ -z "$RABBITMQ_HOST" ]; then
   exit 1
 fi
 
+if [ -z "$REDIS_HOST" ]; then
+  echo "\$REDIS_HOST must be provided" 
+  exit 1
+fi
+
 cat << EOF > /etc/sensu/config.json
 {
   "rabbitmq": {
@@ -23,6 +28,10 @@ cat << EOF > /etc/sensu/config.json
     "port": 4567,
     "user": "$API_USER",
     "password": "$API_PASS"
+  },
+  "redis" {
+    "host": "$REDIS_HOST",
+    "port": "$REDIS_PORT"
   }
 }
 EOF

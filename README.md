@@ -1,9 +1,14 @@
-Usage:
+# Requirements:
+  - ssl dir with cert.pem and key.pem
+  - RABBIMTQ_HOST and REDIS_HOST env
+  
 ```sh
   docker run \
-    # ssl dir should contain cert.pem and key.pem
     -v /ssl:/ssl \
+    -v /log:/log \
     -v /conf.d:/conf.d \
     -v /log:/log \
-    registy.skydns/sensu
+    -e RABBITMQ_HOST=rabbitmq.local \
+    -e RABBITMQ_HOST=redis.local \
+    arypurnomoz/sensu-server
 ```

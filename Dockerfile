@@ -12,6 +12,8 @@ RUN \
 ADD run.sh /tmp/run.sh
 ADD supervisor.conf /etc/supervisor/conf.d/sensu.conf
 
+ENV REDIS_PORT 6379
+
 ENV RABBITMQ_PORT 5671
 ENV RABBITMQ_VHOST /sensu
 ENV RABBITMQ_USER sensu
