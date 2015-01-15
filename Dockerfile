@@ -1,5 +1,12 @@
 FROM debian:latest
 
+ENV REDIS_PORT 6379
+
+ENV RABBITMQ_PORT 5671
+ENV RABBITMQ_VHOST /sensu
+ENV RABBITMQ_USER sensu
+ENV RABBITMQ_PASS sensu
+
 ADD http://repos.sensuapp.org/apt/pubkey.gpg /tmp/pubkey.gpg
 
 RUN \
@@ -12,15 +19,6 @@ RUN \
 ADD run.sh /tmp/run.sh
 ADD supervisor.conf /etc/supervisor/conf.d/sensu.conf
 
-ENV REDIS_PORT 6379
-
-ENV RABBITMQ_PORT 5671
-ENV RABBITMQ_VHOST /sensu
-ENV RABBITMQ_USER sensu
-ENV RABBITMQ_PASS sensu
-
-ENV API_USER admin
-ENV API_PASS admin
 
 # API
 EXPOSE 4567

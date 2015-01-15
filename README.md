@@ -7,7 +7,6 @@
     -v /ssl:/ssl \
     -v /log:/log \
     -v /conf.d:/conf.d \
-    -v /log:/log \
     -e RABBITMQ_HOST=rabbitmq.local \
     -e RABBITMQ_HOST=redis.local \
     arypurnomoz/sensu-server

@@ -23,12 +23,6 @@ cat << EOF > /etc/sensu/config.json
     "user": "$RABBITMQ_USER",
     "password": "$RABBITMQ_PASS"
   },
-  "api": {
-    "host": "0.0.0.0",
-    "port": 4567,
-    "user": "$API_USER",
-    "password": "$API_PASS"
-  },
   "redis": {
     "host": "$REDIS_HOST",
     "port": $REDIS_PORT
@@ -39,4 +33,4 @@ EOF
 echo "Running sensu config:"
 cat /etc/sensu/config.json
 
-exec /usr/bin/supervisord
+exec /opt/sensu/bin/sensu-server -c /etc/sensu/config.json -d /conf.d -v -l /log/server.log
