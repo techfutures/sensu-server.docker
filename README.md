@@ -5,7 +5,6 @@
 ```sh
   docker run \
     -v /ssl:/ssl \
-    -v /log:/log \
     -v /conf.d:/conf.d \
     -e RABBITMQ_HOST=rabbitmq.local \
     -e RABBITMQ_HOST=redis.local \
