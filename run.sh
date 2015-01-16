@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ -z "$RABBITMQ_HOST" ]; then
-  echo "\$RABBITMQ_HOST must be provided" 
+if [ -z "$RABBITMQ_PORT_15672_TCP_ADDR" ]; then
+  echo "\$RABBITMQ_PORT_15672_TCP_ADDR must be provided" 
   exit 1
 fi
 
