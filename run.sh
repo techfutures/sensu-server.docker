@@ -5,8 +5,8 @@ if [ -z "$RABBITMQ_HOST" ]; then
   exit 1
 fi
 
-if [ -z "$REDIS_HOST" ]; then
-  echo "\$REDIS_HOST must be provided" 
+if [ -z "$REDIS_PORT_6379_TCP_ADDR" ]; then
+  echo "\$REDIS_PORT_6379_TCP_ADDR must be provided" 
   exit 1
 fi
 
@@ -17,14 +17,14 @@ cat << EOF > /etc/sensu/config.json
       "cert_chain_file": "/ssl/cert.pem",
       "private_key_file": "/ssl/key.pem"
     },
-    "host": "$RABBITMQ_HOST",
+    "host": "$RABBITMQ_PORT_15672_TCP_ADDR",
     "port": $RABBITMQ_PORT_15672_TCP_PORT,
     "vhost": "$RABBITMQ_VHOST",
     "user": "$RABBITMQ_USER",
     "password": "$RABBITMQ_PASS"
   },
   "redis": {
-    "host": "$REDIS_HOST",
+    "host": "REDIS_PORT_6379_TCP_ADDR",
     "port": $REDIS_PORT_6379_TCP_PORT
   }
 }
