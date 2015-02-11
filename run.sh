@@ -24,7 +24,7 @@ cat << EOF > /etc/sensu/config.json
     "password": "$RABBITMQ_PASS"
   },
   "redis": {
-    "host": "REDIS_PORT_6379_TCP_ADDR",
+    "host": "$REDIS_PORT_6379_TCP_ADDR",
     "port": $REDIS_PORT_6379_TCP_PORT
   }
 }
